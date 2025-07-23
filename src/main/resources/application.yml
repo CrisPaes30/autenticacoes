@@ -1,0 +1,32 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/XE
+    username: system
+    password: lecos
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/lecosBurguer
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: lecosBurguer
+  resource: lecosBurguer
+  credentials:
+    username: cristian
+    password: 12345
+    secret: 1fvhizrgCbPZbUtgri9ifM1XVwzdo9iS
+  public-client: false
+  ssl-required: external
+  use-resource-role-mappings: true
