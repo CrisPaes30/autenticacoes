@@ -1,7 +1,6 @@
 package com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.autenticaController.bussines;
 
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.exceptions.BusinessException;
-import com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.requests.AutenticaRequest;
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.requests.dto.AutenticaRequestDTO;
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.response.*;
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.service.impl.AutenticaServiceImpl;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.config.CadastroConfig.MESSAGE_SOURCE_BEAN_IDENTIFIER;
+import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.config.CadastroConfig.MESSAGE_SOURCE_BEAN_IDENTIFIER;
 import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.enuns.KeyEnums.KEY_0001;
 import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.enuns.KeyEnums.KEY_0006;
 

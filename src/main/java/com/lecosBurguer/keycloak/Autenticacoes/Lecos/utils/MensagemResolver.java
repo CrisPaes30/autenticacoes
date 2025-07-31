@@ -6,7 +6,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 
 import java.util.Locale;
 
-import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.config.CadastroConfig.MESSAGE_SOURCE_BEAN_IDENTIFIER;
+import static com.lecosBurguer.keycloak.Autenticacoes.Lecos.config.CadastroConfig.MESSAGE_SOURCE_BEAN_IDENTIFIER;
 
 @Configuration
 public class MensagemResolver {

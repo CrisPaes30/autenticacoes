@@ -1,4 +1,4 @@
-package com.lecosBurguer.keycloak.Autenticacoes.Lecos.autenticadorCadastro.config;
+package com.lecosBurguer.keycloak.Autenticacoes.Lecos.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

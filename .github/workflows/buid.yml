@@ -1,0 +1,31 @@
+name: Build Java Maven
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build com Maven
+        run: mvn clean package
+
+      - name: Rodar testes
+        run: mvn test
+
+      - name: Upload do JAR gerado
+        uses: actions/upload-artifact@v4
+        with:
+          name: autentiacao-lecos
+          path: target/*.jar
