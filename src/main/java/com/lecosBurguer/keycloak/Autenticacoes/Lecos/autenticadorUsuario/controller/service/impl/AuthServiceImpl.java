@@ -7,6 +7,7 @@ import com.lecosBurguer.keycloak.Autenticacoes.Lecos.config.KeycloakConfig;
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.entidade.LcCadastro;
 import com.lecosBurguer.keycloak.Autenticacoes.Lecos.repository.LcCadastroRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -53,18 +55,21 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException("Falha na chamadada do token", e);
         }
 
+        log.info("Autenticação realizada com sucesso.");
         return response.getBody();
     }
 
     private String validaUsuarioPorEmailOuUserName(String userName) {
         return userName.contains("@")
                 ? lcCadastroRepository.findByEmail(userName)
-                .filter(c -> "A".equals(c.getAtivo()))
+                .filter(c -> "S".equals(c.getAtivo()))
                 .map(LcCadastro::getClient)
                 .orElseThrow(() -> new BusinessException("Usuário não encontrado ou inativo"))
                 : lcCadastroRepository.findByClient(userName)
-                .filter(c -> "A".equals(c.getAtivo()))
+                .filter(c -> "S".equals(c.getAtivo()))
                 .map(LcCadastro::getClient)
                 .orElseThrow(() -> new BusinessException("Usuário não encontrado ou inativo"));
     }
+
+
 }
